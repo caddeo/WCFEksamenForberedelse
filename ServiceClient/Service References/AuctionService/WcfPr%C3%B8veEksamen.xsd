@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WcfPr%C3%B8veEksamen" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WcfPr%C3%B8veEksamen" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfAuction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Auction" nillable="true" type="tns:Auction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAuction" nillable="true" type="tns:ArrayOfAuction" />
+  <xs:complexType name="Auction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BudKundeNavn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BudKundeTelefon" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BudPris" type="xs:int" />
+      <xs:element minOccurs="0" name="BudTidspunkt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Varebetegnelse" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Varenummer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Vurdering" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Auction" nillable="true" type="tns:Auction" />
+</xs:schema>
