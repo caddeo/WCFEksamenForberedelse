@@ -85,13 +85,13 @@ namespace ServiceClient
         private static void BidOnProduct()
         {
             Console.WriteLine("Write a auction ID you want to do a bid on");
-            var varenummerinput = Console.ReadLine();
+            var id = Console.ReadLine();
 
             Console.WriteLine("Write the price you'd like to bid");
-            var offerinput = Console.ReadLine();
+            var bid = Console.ReadLine();
 
             var offer = 0;
-            var validOffer = int.TryParse(offerinput, out offer);
+            var validOffer = int.TryParse(bid, out offer);
 
             // If the user inputs rubbish 
             if (!validOffer || offer <= 0)
@@ -106,7 +106,7 @@ namespace ServiceClient
             Console.WriteLine("... and your phone number");
             var consumernumber = Console.ReadLine();
 
-            var answer = _auctionService.Bid(varenummerinput, offer, consumername, consumernumber);
+            var answer = _auctionService.Bid(id, offer, consumername, consumernumber);
 
             Console.WriteLine(answer);
         }
