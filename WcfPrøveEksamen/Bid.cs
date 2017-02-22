@@ -8,21 +8,20 @@ using System.Threading.Tasks;
 namespace WcfPrøveEksamen
 {
     [DataContract]
-    public class Auction
+    public class Bid
     {
         [DataMember]
-        public string Id { get; set; }
+        public int Price { get; set; }
         [DataMember]
-        public string Description { get; set; }
+        public string Name { get; set; }
         [DataMember]
-        public int Rating { get; set; }
+        public string Phone { get; set; }
         [DataMember]
-        public Bid Bid { get; set; }
+        public DateTime Time { get; set; }
 
-        public Auction()
+        public Bid()
         {
-            Bid = new Bid();
+            this.Price = 0;
         }
-
     }
 }

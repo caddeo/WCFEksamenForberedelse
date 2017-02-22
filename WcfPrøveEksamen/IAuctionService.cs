@@ -15,9 +15,9 @@ namespace WcfPrøveEksamen
         List<Auction> GetAuctions();
 
         [OperationContract]
-        Auction GetAuction(string varenummer);
+        Auction GetAuction(string ID);
 
         [OperationContract]
-        string Bid(string varenummer, int budpris, string kundenavn, string kundetelefon);
+        string Bid(string ID, int price, string name, string phone);
     }
 }

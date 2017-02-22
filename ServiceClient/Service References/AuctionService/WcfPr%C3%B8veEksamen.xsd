@@ -8,14 +8,20 @@
   <xs:element name="ArrayOfAuction" nillable="true" type="tns:ArrayOfAuction" />
   <xs:complexType name="Auction">
     <xs:sequence>
-      <xs:element minOccurs="0" name="BudKundeNavn" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="BudKundeTelefon" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="BudPris" type="xs:int" />
-      <xs:element minOccurs="0" name="BudTidspunkt" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Varebetegnelse" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Varenummer" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Vurdering" type="xs:int" />
+      <xs:element minOccurs="0" name="Bid" nillable="true" type="tns:Bid" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rating" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Auction" nillable="true" type="tns:Auction" />
+  <xs:complexType name="Bid">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Price" type="xs:int" />
+      <xs:element minOccurs="0" name="Time" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Bid" nillable="true" type="tns:Bid" />
 </xs:schema>

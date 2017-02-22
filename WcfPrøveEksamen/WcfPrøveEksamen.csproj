@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Auction.cs" />
     <Compile Include="AuctionService.cs" />
+    <Compile Include="Bid.cs" />
     <Compile Include="IAuctionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

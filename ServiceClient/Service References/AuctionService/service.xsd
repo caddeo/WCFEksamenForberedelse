@@ -16,7 +16,7 @@
   <xs:element name="GetAuction">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="varenummer" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -30,10 +30,10 @@
   <xs:element name="Bid">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="varenummer" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="budpris" type="xs:int" />
-        <xs:element minOccurs="0" name="kundenavn" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="kundetelefon" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="price" type="xs:int" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="phone" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

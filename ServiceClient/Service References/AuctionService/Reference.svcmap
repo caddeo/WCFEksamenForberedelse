@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="302ea8f3-18d0-4871-ae87-403533e157ad" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e05b0f50-365c-48af-ab82-3c286b65e330" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,10 +22,10 @@
     <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/WcfPr%C3%B8veEksamen/AuctionService/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="ce5b79a9-2386-4869-8528-0fda2dbb076b" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfPr%C3%B8veEksamen/AuctionService/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="99fbaf12-4d97-4846-9a10-e83a0752ed64" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfPr%C3%B8veEksamen/AuctionService/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="508ddcd1-2fc3-4b43-a186-abc97bc2a5bb" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfPr%C3%B8veEksamen/AuctionService/mex" />
-    <MetadataFile FileName="WcfPr%C3%B8veEksamen.xsd" MetadataType="Schema" ID="8b142ead-0737-4731-a0b4-c827bf43cb26" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfPr%C3%B8veEksamen/AuctionService/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="0ffa5d99-0c09-4b90-ba3a-2e655c2eca86" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfPr%C3%B8veEksamen/AuctionService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="64d058f0-a028-4ca3-b5ab-50a5cfbe355d" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfPr%C3%B8veEksamen/AuctionService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="4bc7c325-da15-4782-a580-53eb8ea57455" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfPr%C3%B8veEksamen/AuctionService/mex" />
+    <MetadataFile FileName="WcfPr%C3%B8veEksamen.xsd" MetadataType="Schema" ID="2be793bc-147d-49ed-806a-ba3b7fe66250" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfPr%C3%B8veEksamen/AuctionService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

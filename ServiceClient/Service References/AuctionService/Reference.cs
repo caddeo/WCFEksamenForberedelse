@@ -23,25 +23,16 @@ namespace ServiceClient.AuctionService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string BudKundeNavnField;
+        private ServiceClient.AuctionService.Bid BidField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string BudKundeTelefonField;
+        private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int BudPrisField;
+        private string IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime BudTidspunktField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string VarebetegnelseField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string VarenummerField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int VurderingField;
+        private int RatingField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -54,92 +45,146 @@ namespace ServiceClient.AuctionService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string BudKundeNavn {
+        public ServiceClient.AuctionService.Bid Bid {
             get {
-                return this.BudKundeNavnField;
+                return this.BidField;
             }
             set {
-                if ((object.ReferenceEquals(this.BudKundeNavnField, value) != true)) {
-                    this.BudKundeNavnField = value;
-                    this.RaisePropertyChanged("BudKundeNavn");
+                if ((object.ReferenceEquals(this.BidField, value) != true)) {
+                    this.BidField = value;
+                    this.RaisePropertyChanged("Bid");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string BudKundeTelefon {
+        public string Description {
             get {
-                return this.BudKundeTelefonField;
+                return this.DescriptionField;
             }
             set {
-                if ((object.ReferenceEquals(this.BudKundeTelefonField, value) != true)) {
-                    this.BudKundeTelefonField = value;
-                    this.RaisePropertyChanged("BudKundeTelefon");
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int BudPris {
+        public string Id {
             get {
-                return this.BudPrisField;
+                return this.IdField;
             }
             set {
-                if ((this.BudPrisField.Equals(value) != true)) {
-                    this.BudPrisField = value;
-                    this.RaisePropertyChanged("BudPris");
+                if ((object.ReferenceEquals(this.IdField, value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime BudTidspunkt {
+        public int Rating {
             get {
-                return this.BudTidspunktField;
+                return this.RatingField;
             }
             set {
-                if ((this.BudTidspunktField.Equals(value) != true)) {
-                    this.BudTidspunktField = value;
-                    this.RaisePropertyChanged("BudTidspunkt");
+                if ((this.RatingField.Equals(value) != true)) {
+                    this.RatingField = value;
+                    this.RaisePropertyChanged("Rating");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Bid", Namespace="http://schemas.datacontract.org/2004/07/WcfPr%C3%B8veEksamen")]
+    [System.SerializableAttribute()]
+    public partial class Bid : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PhoneField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PriceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime TimeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Varebetegnelse {
+        public string Phone {
             get {
-                return this.VarebetegnelseField;
+                return this.PhoneField;
             }
             set {
-                if ((object.ReferenceEquals(this.VarebetegnelseField, value) != true)) {
-                    this.VarebetegnelseField = value;
-                    this.RaisePropertyChanged("Varebetegnelse");
+                if ((object.ReferenceEquals(this.PhoneField, value) != true)) {
+                    this.PhoneField = value;
+                    this.RaisePropertyChanged("Phone");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Varenummer {
+        public int Price {
             get {
-                return this.VarenummerField;
+                return this.PriceField;
             }
             set {
-                if ((object.ReferenceEquals(this.VarenummerField, value) != true)) {
-                    this.VarenummerField = value;
-                    this.RaisePropertyChanged("Varenummer");
+                if ((this.PriceField.Equals(value) != true)) {
+                    this.PriceField = value;
+                    this.RaisePropertyChanged("Price");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Vurdering {
+        public System.DateTime Time {
             get {
-                return this.VurderingField;
+                return this.TimeField;
             }
             set {
-                if ((this.VurderingField.Equals(value) != true)) {
-                    this.VurderingField = value;
-                    this.RaisePropertyChanged("Vurdering");
+                if ((this.TimeField.Equals(value) != true)) {
+                    this.TimeField = value;
+                    this.RaisePropertyChanged("Time");
                 }
             }
         }
@@ -165,16 +210,16 @@ namespace ServiceClient.AuctionService {
         System.Threading.Tasks.Task<ServiceClient.AuctionService.Auction[]> GetAuctionsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/GetAuction", ReplyAction="http://tempuri.org/IAuctionService/GetAuctionResponse")]
-        ServiceClient.AuctionService.Auction GetAuction(string varenummer);
+        ServiceClient.AuctionService.Auction GetAuction(string ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/GetAuction", ReplyAction="http://tempuri.org/IAuctionService/GetAuctionResponse")]
-        System.Threading.Tasks.Task<ServiceClient.AuctionService.Auction> GetAuctionAsync(string varenummer);
+        System.Threading.Tasks.Task<ServiceClient.AuctionService.Auction> GetAuctionAsync(string ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/Bid", ReplyAction="http://tempuri.org/IAuctionService/BidResponse")]
-        string Bid(string varenummer, int budpris, string kundenavn, string kundetelefon);
+        string Bid(string ID, int price, string name, string phone);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionService/Bid", ReplyAction="http://tempuri.org/IAuctionService/BidResponse")]
-        System.Threading.Tasks.Task<string> BidAsync(string varenummer, int budpris, string kundenavn, string kundetelefon);
+        System.Threading.Tasks.Task<string> BidAsync(string ID, int price, string name, string phone);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -212,20 +257,20 @@ namespace ServiceClient.AuctionService {
             return base.Channel.GetAuctionsAsync();
         }
         
-        public ServiceClient.AuctionService.Auction GetAuction(string varenummer) {
-            return base.Channel.GetAuction(varenummer);
+        public ServiceClient.AuctionService.Auction GetAuction(string ID) {
+            return base.Channel.GetAuction(ID);
         }
         
-        public System.Threading.Tasks.Task<ServiceClient.AuctionService.Auction> GetAuctionAsync(string varenummer) {
-            return base.Channel.GetAuctionAsync(varenummer);
+        public System.Threading.Tasks.Task<ServiceClient.AuctionService.Auction> GetAuctionAsync(string ID) {
+            return base.Channel.GetAuctionAsync(ID);
         }
         
-        public string Bid(string varenummer, int budpris, string kundenavn, string kundetelefon) {
-            return base.Channel.Bid(varenummer, budpris, kundenavn, kundetelefon);
+        public string Bid(string ID, int price, string name, string phone) {
+            return base.Channel.Bid(ID, price, name, phone);
         }
         
-        public System.Threading.Tasks.Task<string> BidAsync(string varenummer, int budpris, string kundenavn, string kundetelefon) {
-            return base.Channel.BidAsync(varenummer, budpris, kundenavn, kundetelefon);
+        public System.Threading.Tasks.Task<string> BidAsync(string ID, int price, string name, string phone) {
+            return base.Channel.BidAsync(ID, price, name, phone);
         }
     }
 }

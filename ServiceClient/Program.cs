@@ -12,86 +12,104 @@ namespace ServiceClient
     {
         static void Main(string[] args)
         {
-            AuctionService.AuctionServiceClient auctionservice = new AuctionServiceClient();
+            new Program().Run();
+        }
 
-            Console.WriteLine("Velkommen til Patrick's Auktion");
+        private static AuctionServiceClient _auctionService;
+
+        public void Run()
+        {
+            // Reference: Service References > AuctionService (Discovered from WcfPrøveEksamen project (Service)
+            _auctionService = new AuctionServiceClient();
+
+            Console.WriteLine("Welcome to Patrick's Auctions");
 
             bool running = true;
             while (running)
             {
-                Console.WriteLine("For at se alle auktioner igang, tryk 1");
-                Console.WriteLine("For at finde en bestemt vare, tryk 2");
-                Console.WriteLine("For at give et bud, tryk 3");
-                Console.WriteLine("For at afslute, tryk Q");
+                Console.WriteLine("To see all current auctions, press 1");
+                Console.WriteLine("To see specific auction, press 2");
+                Console.WriteLine("To offer on a product, press 3");
+                Console.WriteLine("To (q)uit, press q");
 
-                string input = Console.ReadLine();
+                var input = Console.ReadLine();
 
-                if (input == "1")
+                switch (input?.ToLower())
                 {
-                    var auctions = auctionservice.GetAuctions().ToList();
-
-                    foreach (var auction in auctions)
-                    {
-                        Console.WriteLine("Auction: #"+auction.Varenummer+" \n "+auction.Varebetegnelse+" - $"+auction.BudPris);
-                    }
-                }
-                else if (input == "2")
-                {
-                    Console.WriteLine("Skriv varenummeret for at finde auktionen");
-                    string auctioninput = Console.ReadLine();
-
-                    var auction = auctionservice.GetAuction(auctioninput);
-
-                    if (auction != null)
-                    {
-                        Console.WriteLine("Auction: #" + auction.Varenummer + " \n " + auction.Varebetegnelse + " - $" + auction.BudPris + " ("+auction.BudKundeNavn+")");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Kunne ikke finde auktion - går tilbage til menu");
-                    }
-                }
-                else if (input == "3")
-                {
-                    Console.WriteLine("Skriv et varenummer du vil byde på");
-                    string varenummerinput = Console.ReadLine();
-
-                    Console.WriteLine("Skriv det bud du vil afgive på auktionen");
-                    string offerinput = Console.ReadLine();
-
-                    int offer = 0;
-                    int.TryParse(offerinput, out offer);
-
-                    if (offer > 0)
-                    {
-                        Console.WriteLine("Skriv venligst dit navn");
-                        string consumername = Console.ReadLine();
-
-                        Console.WriteLine(".. og dit nummer");
-                        string consumernumber = Console.ReadLine();
-
-                        string answer = auctionservice.Bid(varenummerinput, offer, consumername, consumernumber);
-
-                        // Her kunne man have en switch med de forskellige svar der kom og så håndtere dem for brugeren
-                        Console.WriteLine(answer);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Bud ikke gyldigt - går tilbage til menuen");
-                    }
-                }
-                else if (input == "Q")
-                {
-                    Console.WriteLine("Tak fordi du brugte Patrick's auktionshus");
-                    running = false;
-                }
-                else
-                {
-                    Console.WriteLine("Kommando ikke forstået - prøv igen");
+                    case "1":
+                        PrintAllAuctions();
+                        break;
+                    case "2":
+                        PrintAllProducts();
+                        break;
+                    case "3":
+                        BidOnProduct();
+                        break;
+                    case "q":
+                        Console.WriteLine("Thanks for using Patrick's Auctionhouse");
+                        running = false;
+                        break;
+                    default:
+                        Console.WriteLine("Command not understood");
+                        break;
                 }
             }
+        }
 
-            Console.ReadKey();
+        private static void PrintAllAuctions()
+        {
+            var auctions = _auctionService.GetAuctions().ToList();
+
+            foreach (var auction in auctions)
+            {
+                Console.WriteLine($"Auction: #{auction.Id}\n{auction.Description}\n${auction.Bid.Price}\n");
+            }
+        }
+
+        private static void PrintAllProducts()
+        {
+            Console.WriteLine("Write the product ID you want to find");
+            var auctioninput = Console.ReadLine();
+
+            var auction = _auctionService.GetAuction(auctioninput);
+
+            if (auction != null)
+            {
+                Console.WriteLine($"Auction: #{auction.Id}\n{auction.Description}\n${auction.Bid.Price}");
+            }
+            else
+            {
+                Console.WriteLine("Couldn't find the auction - Going back to the menu");
+            }
+        }
+
+        private static void BidOnProduct()
+        {
+            Console.WriteLine("Write a auction ID you want to do a bid on");
+            var varenummerinput = Console.ReadLine();
+
+            Console.WriteLine("Write the price you'd like to bid");
+            var offerinput = Console.ReadLine();
+
+            var offer = 0;
+            int.TryParse(offerinput, out offer);
+
+            if (offer > 0)
+            {
+                Console.WriteLine("Please write your name");
+                var consumername = Console.ReadLine();
+
+                Console.WriteLine("... and your phone number");
+                var consumernumber = Console.ReadLine();
+
+                var answer = _auctionService.Bid(varenummerinput, offer, consumername, consumernumber);
+
+                Console.WriteLine(answer);
+            }
+            else
+            {
+                Console.WriteLine("Bid not valid - going back to the menu");
+            }
         }
     }
 }

@@ -12,51 +12,48 @@ namespace WcfPrøveEksamen
     {
         private static List<Auction> _auctions = new List<Auction>()
         {
-            new Auction() { Varenummer = "001", Varebetegnelse = "Test1", Vurdering = 100, BudPris = 0},
-            new Auction() { Varenummer = "002", Varebetegnelse = "Test2", Vurdering = 200, BudPris = 100},
-            new Auction() { Varenummer = "003", Varebetegnelse = "Test3", Vurdering = 300, BudPris = 50}
+            new Auction() { Id = "001", Description = "Test1", Rating = 100, },
+            new Auction() { Id = "002", Description = "Test2", Rating = 200, Bid = new Bid() { Price = 100} },
+            new Auction() { Id = "003", Description = "Test3", Rating = 300, Bid = new Bid() { Price = 50} },
         };
 
-        private object _auctionlock = new object();
+        /// Object for locking thread
+        private readonly object _auctionlock = new object();
 
-        public string Bid(string varenummer, int budpris, string kundenavn, string kundetelefon)
+        public string Bid(string ID, int price, string name, string phone)
         {
             var auctions = _auctions.ToList();
 
             lock (_auctionlock)
             {
-                var auction = auctions.FirstOrDefault(x => x.Varenummer == varenummer);
+                var auction = auctions.FirstOrDefault(a => a.Id == ID);
 
-                if (auction != null)
+                if (auction == null)
                 {
-                    if (budpris > auction.BudPris)
-                    {
-                        auction.BudPris = budpris;
-                        auction.BudKundeNavn = kundenavn;
-                        auction.BudKundeTelefon = kundetelefon;
-                        auction.BudTidspunkt = DateTime.Now;
+                    return "ProductID doesn't exist";
+                }
 
-                        return "OK";
-                    }
-                    else
-                    {
-                        return "Bud for lavt";
-                    }
-                }
-                else
+                if (auction.Bid.Price > price)
                 {
-                    return "Vare findes ikke";
+                    return "Bid too low";
                 }
+
+                auction.Bid.Price = price;
+                auction.Bid.Name = name;
+                auction.Bid.Phone = phone;
+                auction.Bid.Time = DateTime.Now;
+
+                return "Bid placed";
             }
         }
 
-        public Auction GetAuction(string varenummer)
+        public Auction GetAuction(string ID)
         {
             var auctions = _auctions.ToList();
 
             lock (_auctionlock)
             {
-                var auction = auctions.FirstOrDefault(x => x.Varenummer == varenummer);
+                var auction = auctions.FirstOrDefault(a => a.Id == ID);
 
                 return auction;
             }
