@@ -73,14 +73,13 @@ namespace ServiceClient
 
             var auction = _auctionService.GetAuction(auctioninput);
 
-            if (auction != null)
-            {
-                Console.WriteLine($"Auction: #{auction.Id}\n{auction.Description}\n${auction.Bid.Price}");
-            }
-            else
+            if (auction == null)
             {
                 Console.WriteLine("Couldn't find the auction - Going back to the menu");
+                return;
             }
+
+            Console.WriteLine($"Auction: #{auction.Id}\n{auction.Description}\n${auction.Bid.Price}");
         }
 
         private static void BidOnProduct()
@@ -92,24 +91,24 @@ namespace ServiceClient
             var offerinput = Console.ReadLine();
 
             var offer = 0;
-            int.TryParse(offerinput, out offer);
+            var validOffer = int.TryParse(offerinput, out offer);
 
-            if (offer > 0)
-            {
-                Console.WriteLine("Please write your name");
-                var consumername = Console.ReadLine();
-
-                Console.WriteLine("... and your phone number");
-                var consumernumber = Console.ReadLine();
-
-                var answer = _auctionService.Bid(varenummerinput, offer, consumername, consumernumber);
-
-                Console.WriteLine(answer);
-            }
-            else
+            // If the user inputs rubbish 
+            if (!validOffer || offer <= 0)
             {
                 Console.WriteLine("Bid not valid - going back to the menu");
+                return;
             }
+
+            Console.WriteLine("Please write your name");
+            var consumername = Console.ReadLine();
+
+            Console.WriteLine("... and your phone number");
+            var consumernumber = Console.ReadLine();
+
+            var answer = _auctionService.Bid(varenummerinput, offer, consumername, consumernumber);
+
+            Console.WriteLine(answer);
         }
     }
 }
